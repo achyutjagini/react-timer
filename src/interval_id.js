@@ -1,0 +1,25 @@
+  // store interval id in state
+  const [intervalId, setIntervalId] = useState<number| null>(null);
+
+  const handleClickStart = () => {
+    const intervalId = window.setInterval(() => {
+        // ...
+    }, 1000);
+
+    // update the state variable when we have a new id
+    // would cause a rerender
+    setIntervalId(intervalId);
+  };
+
+  const handleClickStop = () => {
+    // If the timer is already stopped, do nothing
+    if (intervalId === null) {
+      return;
+    }
+
+    clearInterval(intervalId);
+    // update the state variable to null once we
+    // cleared the interval
+    // would cause a rerender
+    setIntervalId(null);
+  };
