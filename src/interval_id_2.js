@@ -61,6 +61,9 @@ useEffect(() =>{
 , []);
 
 
+
+const [timeRemaining, setTimeRemaining] = useState(fiveMinutes);
+
 const handleClickStart = () => {
   intervalId.current = window.setInterval(() => {
     setTimeRemaining(new Date(timeRemaining.getTime() - 1000));
